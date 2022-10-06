@@ -41,10 +41,10 @@ const questions = [
 
 inquirer.prompt(questions)
   .then(async (answers) => {
-    await replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src/App.vue', './src-pwa/manifest.json'], from: /ExampleName/g, to: answers.name })
+    await replace({ files: ['./package.json', './quasar.config.js', './README.md', './src/App.vue', './src-pwa/manifest.json'], from: /ExampleName/g, to: answers.name })
       .catch((error) => logger(`Project name caused an error: ${error}`));
 
-    await replace({ files: ['./package.json', './quasar.conf.js', './README.md', './src-pwa/manifest.json'], from: /ExampleDescription/g, to: answers.description })
+    await replace({ files: ['./package.json', './quasar.config.js', './README.md', './src-pwa/manifest.json'], from: /ExampleDescription/g, to: answers.description })
       .catch((error) => logger(`Setting description caused an error: ${error}`));
 
     if (/^([0-9]+)\.([0-9]+)\.([0-9]+)/gm.test(answers.version)) {

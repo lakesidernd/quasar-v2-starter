@@ -13,6 +13,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "prepare:all": "npm i && node generator.js",
+    "postprepare:all": "npm uninstall chalk inquirer replace-in-file",
     "lint": "eslint --ext .js,.ts,.vue ./ --fix",
     "dev:local": "cross-env ENVIRONMENT=local quasar dev -m pwa",
     "prebuild:local": "npm run lint",

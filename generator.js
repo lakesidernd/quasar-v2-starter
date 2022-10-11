@@ -6,6 +6,14 @@ const { version } = require('./package.json');
 
 const logger = (text, color = 'red') => console.log(chalk[color](text));
 
+const intro = () => {
+  const border = '*'.repeat(30);
+  logger(`\n${border}\n\n\n`, 'white');
+  logger('Hi Lakesiders!', 'blue');
+  logger('Follow the steps below and make your life easier!\n\n\n', 'white');
+  logger(`${border}\n`, 'white');
+};
+
 const base = './variables/.env';
 fs.writeFile(base, '', (err) => err);
 
@@ -38,6 +46,8 @@ const questions = [
     default: `${version}`,
   },
 ];
+
+intro();
 
 inquirer.prompt(questions)
   .then(async (answers) => {
